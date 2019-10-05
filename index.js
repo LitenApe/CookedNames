@@ -3,6 +3,7 @@
  * tidy and simple fashion. Takes in an arbitraty number
  * of arguments and returns all truthy arguments as an
  * css class string.
+ * @returns {string | undefined} Returns a css valid combination of classnames
  */
 function cookedNames() {
   "use strict"
@@ -19,39 +20,33 @@ function cookedNames() {
   const classes = new Set();
 
   for (let i = 0; i < arguments.length; i++) {
-    const type = getType(arguments[i])
+    const arg = arguments[i];
+    const type = getType(arg);
 
-    if (!arguments[i]) {
-      continue;
-    }
+    if (!arg) continue;
 
     if (type === "string" || type === "number") {
-      classes.add(arguments[i]);
+      classes.add(arg);
     } else if (type === "object") {
-      for (let key in arguments[i]) {
-        if (arguments[i][key]) {
-          classes.add(key);
-        }
+      for (let key in arg) {
+        if (arg[key]) classes.add(key);
       }
     } else if (type === "array") {
-      classes.add(cookedNames(...arguments[i]));
+      const deep = cookedNames.apply(null, arg);
+      if (deep) classes.add(deep);
     }
   }
 
-  const processedClasses = Array.from(classes).filter(c => c);
+  if (classes.size === 0) return;
 
-  if (processedClasses.length === 0) {
-    return;
-  }
-
-  return processedClasses.join(" ");
+  return Array.from(classes).join(" ");
 }
 
 if (module && module.exports) {
   cookedNames.default = cookedNames;
   module.exports = cookedNames;
 } else if (define && define.amd) {
-  define("cookedNames", [], () => cookedNames);
+  define("cookednames", [], () => cookedNames);
 } else {
   window.cookedNames = cookedNames;
 }
