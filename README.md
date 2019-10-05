@@ -1,5 +1,7 @@
 CookedNames
 ==========
+![npm version badge](https://img.shields.io/npm/v/cookednames?style=for-the-badge)
+![npm package size](https://img.shields.io/bundlephobia/min/cookednames?style=for-the-badge)
 
 A simple JavaScript utility function for conditionally concatenating css class names and strings together.
 
