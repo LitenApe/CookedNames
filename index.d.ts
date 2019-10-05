@@ -1,4 +1,4 @@
-export type ArgumentTypes = string | number | dict | array | undefined | null;
+export type ArgumentTypes = string | number | dict | array | undefined | null | boolean;
 
 export interface dict {
   [id: string]: boolean | undefined | null;

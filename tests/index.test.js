@@ -1,10 +1,17 @@
 const assert = require("assert");
 const cookedNames = require("../");
 
+
 assert.equal(
   cookedNames(),
   "",
   "returns empty string by default"
+);
+
+assert.equal(
+  cookedNames(true, false),
+  "",
+  "returns empty string by when only boolean values are passed"
 );
 
 // Tests for string arguments
