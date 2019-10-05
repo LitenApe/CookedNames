@@ -1,8 +1,9 @@
 {
-  "name": "classnames",
+  "name": "CookedNames",
   "version": "1.0.0",
   "description": "Utility function to conditionally joining class names together",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "node tests/*"
   },

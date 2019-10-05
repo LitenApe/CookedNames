@@ -8,7 +8,7 @@ function getType(obj) {
   return objectType.match(/\[\w+ (\w+)\]/)[1].toLowerCase();
 }
 
-function classNames() {
+function cookedNames() {
   const classes = new Set();
 
   for (let i = 0; i < arguments.length; i++) {
@@ -27,7 +27,7 @@ function classNames() {
         }
       }
     } else if (type === "array") {
-      classes.add(classNames(...arguments[i]));
+      classes.add(cookedNames(...arguments[i]));
     }
   }
 
@@ -35,10 +35,10 @@ function classNames() {
 }
 
 if (module && module.exports) {
-  classNames.default = classNames;
-  module.exports = classNames;
+  cookedNames.default = cookedNames;
+  module.exports = cookedNames;
 } else if (define && define.amd) {
-  define("classnames", [], () => classNames);
+  define("cookedNames", [], () => cookedNames);
 } else {
-  window.classNames = classNames;
+  window.cookedNames = cookedNames;
 }
