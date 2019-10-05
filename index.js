@@ -1,14 +1,20 @@
 /**
- * Retrieves and returns lower cased string of the object type.
- * @param {*} obj 
- * @returns {string} string | number | boolean | object | array | arguments | function | error | date | regexp | undefined | null
+ * Utility function to concatenate css classnames in a
+ * tidy and simple fashion. Takes in an arbitraty number
+ * of arguments and returns all truthy arguments as an
+ * css class string.
  */
-function getType(obj) {
-  const objectType = Object.prototype.toString.call(obj);
-  return objectType.match(/\[\w+ (\w+)\]/)[1].toLowerCase();
-}
-
 function cookedNames() {
+  /**
+   * Retrieves and returns lower cased string of the object type.
+   * @param {*} obj 
+   * @returns {string} string | number | boolean | object | array | arguments | function | error | date | regexp | undefined | null
+   */
+  function getType(obj) {
+    const objectType = Object.prototype.toString.call(obj);
+    return objectType.match(/\[\w+ (\w+)\]/)[1].toLowerCase();
+  }
+
   const classes = new Set();
 
   for (let i = 0; i < arguments.length; i++) {
