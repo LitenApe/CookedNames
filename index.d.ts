@@ -4,10 +4,10 @@ export interface dict {
   [id: string]: boolean | undefined | null;
 }
 
-export interface array extends Array<ArgumentTypes> {};
+export interface array extends Array<ArgumentTypes> {}
 
 interface CookedNamesFn {
-  (...classes: ArgumentTypes[]): string
+  (...classes: ArgumentTypes[]): string | undefined;
 }
 
 declare let cookedNames: CookedNamesFn;

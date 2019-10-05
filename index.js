@@ -5,6 +5,7 @@
  * css class string.
  */
 function cookedNames() {
+  "use strict"
   /**
    * Retrieves and returns lower cased string of the object type.
    * @param {*} obj 
@@ -37,7 +38,13 @@ function cookedNames() {
     }
   }
 
-  return Array.from(classes).join(" ");
+  const processedClasses = Array.from(classes).filter(c => c);
+
+  if (processedClasses.length === 0) {
+    return;
+  }
+
+  return processedClasses.join(" ");
 }
 
 if (module && module.exports) {

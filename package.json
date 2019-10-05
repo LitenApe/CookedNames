@@ -1,6 +1,6 @@
 {
   "name": "cookednames",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Utility function to conditionally joining class names together",
   "main": "index.js",
   "types": "index.d.ts",

@@ -4,14 +4,14 @@ const cookedNames = require("../");
 
 assert.equal(
   cookedNames(),
-  "",
-  "returns empty string by default"
+  undefined,
+  "returns 'undefined' by default"
 );
 
 assert.equal(
   cookedNames(true, false),
-  "",
-  "returns empty string by when only boolean values are passed"
+  undefined,
+  "returns 'undefined' by when only boolean values are passed"
 );
 
 // Tests for string arguments
@@ -35,15 +35,15 @@ assert.equal(
 
 // Tests for list arguments
 assert.equal(
-  cookedNames(["Hello", "World"]),
-  "Hello World",
-  "spread arrays"
+  cookedNames([]),
+  undefined,
+  "return 'undefined' for empty list"
 );
 
 assert.equal(
-  cookedNames([]),
-  "",
-  "returns empty string for empty list"
+  cookedNames(["Hello", "World"]),
+  "Hello World",
+  "spread arrays"
 );
 
 assert.equal(
@@ -72,15 +72,15 @@ assert.equal(
 
 assert.equal(
   cookedNames([[[[[[]]]]]]),
-  "",
+  undefined,
   "handle nested empty lists"
 );
 
 // Tests for object/dict arguments
 assert.equal(
   cookedNames({}),
-  "",
-  "returns empty string for empty dict"
+  undefined,
+  "returns 'undefined' for empty dict"
 );
 
 assert.equal(
@@ -154,7 +154,7 @@ assert.equal(
 );
 
 assert.equal(
-  cookedNames(["a", ["b", [{c: true}]]]),
-  "a b c",
+  cookedNames(["Hello", ["World", [{"Cook": true}]]]),
+  "Hello World Cook",
   "handle deep lists with dict"
 );
