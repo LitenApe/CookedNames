@@ -1,5 +1,5 @@
 {
-  "name": "CookedNames",
+  "name": "cookednames",
   "version": "1.0.0",
   "description": "Utility function to conditionally joining class names together",
   "main": "index.js",
@@ -7,6 +7,15 @@
   "scripts": {
     "test": "node tests/*"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LitenApe/CookedNames.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LitenApe/CookedNames/issues"
+  },
   "author": "LitenApe",
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": ["JavaScript"],
+  "homepage": "https://github.com/LitenApe/CookedNames"
 }
