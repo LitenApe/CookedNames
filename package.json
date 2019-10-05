@@ -1,0 +1,11 @@
+{
+  "name": "classnames",
+  "version": "1.0.0",
+  "description": "Utility function to conditionally joining class names together",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests/*"
+  },
+  "author": "LitenApe",
+  "license": "MIT"
+}
