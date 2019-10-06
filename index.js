@@ -17,29 +17,30 @@ function cookedNames() {
     return objectType.match(/\[\w+ (\w+)\]/)[1].toLowerCase();
   }
 
-  const classes = new Set();
+  let classes = "";
 
   for (let i = 0; i < arguments.length; i++) {
     const arg = arguments[i];
+    
+    if (!arg) continue;
+    
     const type = getType(arg);
 
-    if (!arg) continue;
-
     if (type === "string" || type === "number") {
-      classes.add(arg);
+      classes += `${arg} `;
     } else if (type === "object") {
       for (let key in arg) {
-        if (arg[key]) classes.add(key);
+        if (arg[key]) classes += `${key} `;
       }
     } else if (type === "array") {
       const deep = cookedNames.apply(null, arg);
-      if (deep) classes.add(deep);
+      if (deep) classes += `${deep} `;
     }
   }
 
-  if (classes.size === 0) return;
+  if (!classes) return;
 
-  return Array.from(classes).join(" ");
+  return classes.trimRight();
 }
 
 if (module && module.exports) {
