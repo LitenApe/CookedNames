@@ -27,12 +27,6 @@ assert.equal(
   "trim redundant string args"
 );
 
-assert.equal(
-  cookedNames("Hello", "Hello", "World", "World"),
-  "Hello World",
-  "remove duplicates"
-);
-
 // Tests for list arguments
 assert.equal(
   cookedNames([]),
